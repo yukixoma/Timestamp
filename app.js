@@ -11,12 +11,12 @@ app.use(cors());
 
 
 //GET call to return JSON
-app.get("/time",function(req,res,next){
+app.get("/",function(req,res,next){
     console.log("homepage working");
     res.sendFile(path.join(__dirname,"index.html"));
 })
 
-app.get('/time/:timeString',function(req,res,next){
+app.get('/:timeString',function(req,res,next){
     console.log("URL Working");
     var timeString = req.params.timeString;
 //default format date
