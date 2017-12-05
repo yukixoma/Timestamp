@@ -2,6 +2,7 @@
 var express     = require("express");
 var bodyParser  = require("body-parser");
 var cors        = require("cors");
+var path        = require("path");
 
 // Create app, setting up cors, bodyParser...
 var app = module.exports = express();
@@ -10,6 +11,11 @@ app.use(cors());
 
 
 //GET call to return JSON
+app.get("/time",function(req,res,next){
+    console.log("homepage working");
+    res.sendFile(path.join(__dirname,"index.html"));
+})
+
 app.get('/time/:timeString',function(req,res,next){
     console.log("URL Working");
     var timeString = req.params.timeString;
